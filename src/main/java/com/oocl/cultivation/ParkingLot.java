@@ -1,5 +1,4 @@
 package com.oocl.cultivation;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +15,18 @@ public class ParkingLot {
     }
 
     public int getAvailableParkingPosition() {
-        return cars.size() - capacity;
+        return capacity - cars.size();
     }
+    
+    public ParkingTicket parkCar(Car car) {
+    	ParkingTicket ticket = new ParkingTicket();
+    	cars.put(ticket,car);
+    	return ticket;
+    }
+
+	public Car getCarByTicket(ParkingTicket ticket) {
+		// TODO Auto-generated method stub
+		return cars.remove(ticket);
+	}
+    
 }
