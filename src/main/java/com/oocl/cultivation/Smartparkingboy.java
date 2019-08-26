@@ -2,17 +2,17 @@ package com.oocl.cultivation;
 
 import java.util.List;
 
-public class ParkingBoy {
+public class Smartparkingboy {
 
     private  ParkingLot parkingLot;
     private String lastErrorMessage;
 
     private List<ParkingLot> parkingLotList;
-    public ParkingBoy(ParkingLot parkingLot) {
+    public Smartparkingboy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
     }
 
-    public ParkingBoy(List<ParkingLot> parkingLotList) {
+    public Smartparkingboy(List<ParkingLot> parkingLotList) {
         this.parkingLotList = parkingLotList;
     }
 
@@ -25,7 +25,7 @@ public class ParkingBoy {
             lastErrorMessage = null;
             return parkingTicket;
         }else if(parkingLot.getAvailableParkingPosition()<=0){
-           lastErrorMessage = "The parking lot is full.";
+            lastErrorMessage = "The parking lot is full.";
             return null;
         }else{
             return null;
@@ -37,8 +37,8 @@ public class ParkingBoy {
         //throw new RuntimeException("Not implemented");
         if (ticket != null && parkingLot.getCars().get(ticket) != null) {
             Car car = this.parkingLot.getCars().get(ticket);
-           parkingLot.getCars().remove(ticket);
-           lastErrorMessage = null;
+            parkingLot.getCars().remove(ticket);
+            lastErrorMessage = null;
             return car;
         }else if(ticket==null){
             lastErrorMessage="Please provide your parking ticket.";
